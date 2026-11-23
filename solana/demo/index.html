@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f4f6f4">
+  <title>Trust404 · 결제 거절 검증</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 이동</a>
+  <header class="mast">
+    <div class="mast-inner">
+      <div class="wordmark" aria-label="Trust404"><span class="brand-sign" aria-hidden="true"><i></i><i></i><i></i></span><strong>Trust<span>404</span></strong></div>
+      <div class="mast-product"><span class="mast-slash" aria-hidden="true">/</span> 검증 콘솔</div>
+      <div class="mast-right"><span class="solana-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>Solana</span><span class="badge" id="environment-label">데모</span></div>
+    </div>
+  </header>
+  <main id="main" class="shell">
+    <section class="page-intro" aria-labelledby="page-title">
+      <div><h1 id="page-title">결제 거절 검증</h1><p>에이전트 결제 영수증의 서명과 거절 근거를 이 기기에서 확인합니다.</p></div>
+      <div class="input-tools">
+        <label class="scenario-control"><span>시나리오</span><select id="scenario" aria-label="검증 시나리오"><option>불러오는 중</option></select></label>
+        <button id="next-scenario" type="button" class="button square" aria-label="다음 시나리오" title="다음 시나리오"><canvas data-icon="next"></canvas></button>
+        <button id="import" type="button" class="button import-receipt"><canvas data-icon="upload"></canvas>영수증 가져오기</button>
+        <input type="file" id="file" accept=".json,application/json" hidden>
+      </div>
+    </section>
+    <p id="file-message" class="file-message" role="status" hidden></p>
+    <section class="hero" id="verdict-card" data-state="pending" aria-labelledby="verdict-title">
+      <div class="hero-copy">
+        <div class="hero-eyebrow"><span class="signal" aria-hidden="true"></span>OFFLINE VERIFIER<span class="profile-marker" id="hero-profile">기본 데모 프로필</span></div>
+        <div id="verdict" role="status" aria-live="polite" aria-atomic="true"><h2 id="verdict-title">영수증 준비 중</h2><p id="verdict-note">로컬 검증용 데이터를 읽고 있습니다.</p></div>
+        <div class="hero-actions"><button type="button" class="button primary" id="verify" disabled><canvas data-icon="verify"></canvas><span>다시 검증</span></button><button type="button" id="open-data" class="button ghost"><canvas data-icon="code"></canvas>영수증 JSON</button><button type="button" id="load-localnet" class="button ghost"><canvas data-icon="anchor"></canvas>로컬넷 실측 영수증</button></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true"><canvas id="seal"></canvas></div>
+    </section>
+    <div class="evidence-grid">
+      <section class="panel pay-panel" aria-labelledby="payment-title">
+        <div class="panel-heading"><div class="heading-icon"><canvas data-icon="payment"></canvas></div><h2 id="payment-title">결제 요청</h2><span class="panel-meta" id="source-label">샘플 영수증</span></div>
+        <div class="payment-main"><div><div class="field-label" id="amount-label">요청 금액</div><div class="amount"><strong id="amount">—</strong><span id="asset"></span></div></div><span id="payment-state" class="pill plain">—</span></div>
+        <dl id="payment-fields" class="field-list"></dl>
+        <div class="policy-card" id="policy-card" hidden><div class="policy-heading"><canvas data-icon="rule"></canvas><h3>거절 근거</h3><span id="policy-code"></span></div><p id="policy-description"></p>
+          <div class="policy-chart" id="policy-chart" hidden>
+            <div><label for="request-bar">요청</label><progress id="request-bar" max="1000"></progress><span id="request-cell"></span></div>
+            <div><label for="limit-bar">1회 한도</label><progress id="limit-bar" max="1000"></progress><span id="limit-cell"></span></div>
+          </div>
+        </div>
+      </section>
+      <section class="panel audit-panel" aria-labelledby="audit-title">
+        <div class="panel-heading"><div class="heading-icon"><canvas data-icon="checks"></canvas></div><h2 id="audit-title">오프라인 검증 기록</h2><span id="check-summary" class="panel-meta"></span></div>
+        <ol id="checks" class="check-list"></ol>
+      </section>
+    </div>
+    <section class="anchor-panel" aria-labelledby="anchor-title">
+      <div class="anchor-icon"><canvas data-icon="anchor"></canvas></div><div class="anchor-copy"><h2 id="anchor-title">솔라나 앵커링</h2><p id="anchor-note"></p></div>
+      <span class="anchor-state" id="anchor-state"></span>
+      <div class="trust-management">
+        <div><strong id="trust-label">기본 데모 프로필</strong><p id="trust-note">요청과 판단 배치의 체크포인트를 포함합니다.</p></div>
+        <div class="trust-actions"><button id="import-trust" type="button" class="button"><canvas data-icon="upload"></canvas>신뢰 프로필 가져오기</button>
+          <button id="reset-trust" type="button" class="button" hidden>데모 프로필로 복원</button></div>
+        <input type="file" id="trust-file" accept=".json,application/json" hidden>
+        <p id="trust-message" class="trust-message" role="status" hidden></p>
+      </div>
+      <details class="anchor-details"><summary>프로필 정보와 앵커 확인 범위</summary>
+        <dl id="trust-identifiers" class="trust-identifiers"></dl><p>요청과 거절 결정의 머클 경로가 각각 고정된 배치 루트로 이어지는지 확인합니다. 실제 등록 여부를 입증하려면 해당 솔라나 네트워크에서 프로그램, 발급자, 확정된 루트를 확인해야 합니다.</p></details>
+    </section>
+  </main>
+  <dialog id="raw-dialog" aria-labelledby="raw-title">
+    <div class="dialog-inner"><div class="dialog-head"><div><p class="dialog-kicker">RECEIPT</p><h2 id="raw-title">영수증 JSON</h2></div><button id="close-dialog" type="button" class="button square" aria-label="닫기"><canvas data-icon="close"></canvas></button></div>
+    <p class="dialog-description">현재 검증에 사용한 영수증을 확인하고 저장할 수 있습니다.</p>
+    <pre id="raw-json" lang="en" tabindex="0"></pre>
+    <div class="dialog-actions"><button type="button" id="download" class="button primary"><canvas data-icon="download"></canvas>JSON 저장</button></div></div>
+  </dialog>
+  <noscript>이 데모를 실행하려면 브라우저에서 JavaScript를 활성화하세요.</noscript>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

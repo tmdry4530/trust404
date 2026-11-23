@@ -1,0 +1,17 @@
+[package]
+name = "trust404-anchor"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "trust404_anchor"
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+solana-program = "=2.2.1"
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1

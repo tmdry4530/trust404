@@ -1,0 +1,27 @@
+{
+  "source": "auditor-rpc-export",
+  "context": {
+    "genesisHash": "AvvfH3mjHoa2KXZ1dFR7mT6CHGVCbYFfQmpjJ2WLZk5N",
+    "programId": "7HinTb3byVqLMJCxDK2P7zrUBJYzYwyrU1L5si3afUrG",
+    "publisher": "FPgMgYDxaKnpCjsFjMPriaxN3QmETLYRHGWenMKsuayq"
+  },
+  "issuer": "FPgMgYDxaKnpCjsFjMPriaxN3QmETLYRHGWenMKsuayq",
+  "agentKeys": [
+    "7VR1YUGkM9GShicUSU9BheuPLmhbKKqzLUqEdSci1zax"
+  ],
+  "policyHash": "62752849ec36e9cd1bc1c21b18043e759ef38d1b9a5900b65675b139be856740",
+  "batches": [
+    {
+      "batchId": "1",
+      "slot": "80",
+      "count": 1,
+      "root": "bc880aaaccb58ef547012eb6d643edf4eb3cde47e1774105dc5d63495fbadeb0"
+    },
+    {
+      "batchId": "2",
+      "slot": "124",
+      "count": 1,
+      "root": "99ecc7d0fd6f447e796e6f3918ddc88b902ef03844d3356662bcbc17b01ff0c8"
+    }
+  ]
+}

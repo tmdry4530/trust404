@@ -3,8 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test test/unit/*.test.js",
+    "test": "node --test test/unit/*.test.js solana/test/*.test.mjs",
     "demo": "npm run demo:local",
+    "demo:solana": "node solana/tools/demo.mjs",
+    "test:solana": "node --test solana/test/*.test.mjs",
     "test:contracts": "forge test",
     "test:integration": "forge build && node --test test/integration/*.test.js",
     "evidence": "node src/cli.js",

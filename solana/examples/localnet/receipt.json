@@ -1,0 +1,56 @@
+{
+  "schema": "trust404.solana.payment-refusal.v1",
+  "context": {
+    "genesisHash": "AvvfH3mjHoa2KXZ1dFR7mT6CHGVCbYFfQmpjJ2WLZk5N",
+    "programId": "7HinTb3byVqLMJCxDK2P7zrUBJYzYwyrU1L5si3afUrG",
+    "publisher": "FPgMgYDxaKnpCjsFjMPriaxN3QmETLYRHGWenMKsuayq"
+  },
+  "issuer": "FPgMgYDxaKnpCjsFjMPriaxN3QmETLYRHGWenMKsuayq",
+  "request": {
+    "id": "PAY-LOCAL-1",
+    "agent": "Local agent",
+    "agentKey": "7VR1YUGkM9GShicUSU9BheuPLmhbKKqzLUqEdSci1zax",
+    "merchant": "Compute supplier",
+    "recipient": "4aCJzi5g9Wtuby64uDoHrhwG89EeubDodgiwTWj7Myhy",
+    "amountMinor": "185000000",
+    "asset": "TEST",
+    "mint": "3bJW9tbhdVz1bE1r6JAbgnngS6s8DSaoZc7Lj3dZo9Wi",
+    "decimals": 6
+  },
+  "policy": {
+    "id": "agent-payments-v1",
+    "asset": "TEST",
+    "mint": "3bJW9tbhdVz1bE1r6JAbgnngS6s8DSaoZc7Lj3dZo9Wi",
+    "decimals": 6,
+    "perPaymentLimitMinor": "100000000",
+    "allowedRecipients": [
+      "4aCJzi5g9Wtuby64uDoHrhwG89EeubDodgiwTWj7Myhy"
+    ]
+  },
+  "decision": {
+    "policyHash": "62752849ec36e9cd1bc1c21b18043e759ef38d1b9a5900b65675b139be856740",
+    "requestLeaf": "bc880aaaccb58ef547012eb6d643edf4eb3cde47e1774105dc5d63495fbadeb0",
+    "reasonCode": "LIMIT_EXCEEDED",
+    "issuedAt": "2026-11-23T03:37:49Z",
+    "requestRef": {
+      "batchId": "1",
+      "slot": "80",
+      "root": "bc880aaaccb58ef547012eb6d643edf4eb3cde47e1774105dc5d63495fbadeb0",
+      "index": 0
+    }
+  },
+  "proofs": {
+    "request": {
+      "batchId": "1",
+      "index": 0,
+      "siblings": []
+    },
+    "decision": {
+      "batchId": "2",
+      "index": 0,
+      "siblings": []
+    }
+  },
+  "requestSignature": "8a5f76bc53d21ff4127b0fc5f24b58810ea47e62b61b31be4ea4e058987edf1593a8c150e4ad94ab1c12559182f1c0a8db69acf374b3c547b7b08166b973f90e",
+  "signature": "e9e50cf699df1d2700b67744825a98893bb900f86c4e9e2490f5c2831f77113ec8685f8f0c4dcde280cea14f027562c6fe11032287232888cf13632bf1b2190a"
+}

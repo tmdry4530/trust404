@@ -1,0 +1,12 @@
+{
+  "context": {
+    "genesisHash": "AvvfH3mjHoa2KXZ1dFR7mT6CHGVCbYFfQmpjJ2WLZk5N",
+    "programId": "7HinTb3byVqLMJCxDK2P7zrUBJYzYwyrU1L5si3afUrG",
+    "publisher": "FPgMgYDxaKnpCjsFjMPriaxN3QmETLYRHGWenMKsuayq"
+  },
+  "commitment": "finalized",
+  "batchId": "2",
+  "count": 1,
+  "root": "99ecc7d0fd6f447e796e6f3918ddc88b902ef03844d3356662bcbc17b01ff0c8",
+  "slot": "124"
+}
